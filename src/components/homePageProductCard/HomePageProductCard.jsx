@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 // productData
 const productData = [
   {
@@ -83,6 +85,7 @@ const productData = [
 ];
 
 const HomePageProductCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="mt-10">
       {/* Heading  */}
@@ -102,6 +105,7 @@ const HomePageProductCard = () => {
                 <div key={index} className="p-4 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                     <img
+                      onClick={() => navigate("/productinfo")}
                       className="lg:h-80  h-96 w-full"
                       src={image}
                       alt="blog"
@@ -118,7 +122,7 @@ const HomePageProductCard = () => {
                       </h1>
 
                       <div className="flex justify-center ">
-                        <button className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                        <button className=" bg-gray-500 hover:bg-gray-800 w-full text-white py-[4px] rounded-lg font-bold">
                           Add To Cart
                         </button>
                       </div>
