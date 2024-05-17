@@ -1,3 +1,12 @@
+import { useContext, useState } from "react";
+import myContext from "../../context/myContext";
+import { useNavigate } from "react-router-dom";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import toast from "react-hot-toast";
+import { set } from "firebase/database";
+import { fireDB } from "../../firebase/FirebaseConfig";
+import { Loader } from "lucide-react";
+
 const categoryList = [
   {
     name: "fashion",
@@ -25,9 +34,56 @@ const categoryList = [
   },
 ];
 const AddProductPage = () => {
+  const context = useContext(myContext);
+  const { loading, setLoading } = context;
+
+  const navigate = useNavigate();
+
+  const [product, setProduct] = useState({
+    title: "",
+    price: "",
+    productImageurl: "",
+    category: "",
+    description: "",
+    quantity: "",
+    time: Timestamp.now(),
+    date: new Date().toLocaleString("en-es", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    }),
+  });
+
+  const addProductFunction = async () => {
+    //validation
+
+    if (
+      product.title == "" ||
+      product.price == "" ||
+      product.productImageurl == "" ||
+      product.category == "" ||
+      product.description == ""
+    ) {
+      return toast.error("all fields are required");
+    }
+
+    setLoading(true);
+    try {
+      const productRef = collection(fireDB, "product");
+      await addDoc(productRef, product);
+      toast.success("Add produuct succesfully");
+      navigate("/admin-dashboard");
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      toast.error("Add product Failed");
+    }
+  };
   return (
     <div>
       <div className="flex justify-center items-center h-screen">
+        {loading && <Loader />}
         {/* Login Form  */}
         <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
           {/* Top Heading  */}
@@ -42,6 +98,13 @@ const AddProductPage = () => {
             <input
               type="text"
               name="title"
+              value={product.title}
+              onChange={(e) => {
+                setProduct({
+                  ...product,
+                  title: e.target.value,
+                });
+              }}
               placeholder="Product Title"
               className="bg-pink-50 text-pink-300 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
             />
@@ -51,6 +114,13 @@ const AddProductPage = () => {
           <div className="mb-3">
             <input
               type="number"
+              value={product.price}
+              onChange={(e) => {
+                setProduct({
+                  ...product,
+                  price: e.target.value,
+                });
+              }}
               placeholder="Product Price"
               className="bg-pink-50 text-pink-300 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
             />
@@ -61,13 +131,29 @@ const AddProductPage = () => {
             <input
               type="text"
               placeholder="Product Image Url"
+              value={product.productImageurl}
+              onChange={(e) => {
+                setProduct({
+                  ...product,
+                  productImageurl: e.target.value,
+                });
+              }}
               className="bg-pink-50 text-pink-300 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300"
             />
           </div>
 
           {/* Input Four  */}
           <div className="mb-3">
-            <select className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  ">
+            <select
+              value={product.category}
+              onChange={(e) => {
+                setProduct({
+                  ...product,
+                  category: e.target.value,
+                });
+              }}
+              className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  "
+            >
               <option disabled>Select Product Category</option>
               {categoryList.map((value, index) => {
                 const { name } = value;
@@ -87,6 +173,13 @@ const AddProductPage = () => {
           {/* Input Five  */}
           <div className="mb-3">
             <textarea
+              value={product.description}
+              onChange={(e) => {
+                setProduct({
+                  ...product,
+                  description: e.target.value,
+                });
+              }}
               name="description"
               placeholder="Product Description"
               rows="5"
@@ -97,6 +190,7 @@ const AddProductPage = () => {
           {/* Add Product Button  */}
           <div className="mb-3">
             <button
+              onClick={addProductFunction}
               type="button"
               className="bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md "
             >

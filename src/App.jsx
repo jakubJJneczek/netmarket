@@ -49,7 +49,7 @@ const App = () => {
             path="/addproduct"
             element={
               <ProtectedRouteForAdmin>
-                <AdminDashboard />
+                <AddProductPage />
               </ProtectedRouteForAdmin>
             }
           />
@@ -57,7 +57,7 @@ const App = () => {
             path="/updateproduct"
             element={
               <ProtectedRouteForAdmin>
-                <AdminDashboard />
+                <UpdateProductPage />
               </ProtectedRouteForAdmin>
             }
           />
