@@ -39,6 +39,7 @@ const MyState = ({ children }) => {
         loading,
         setLoading,
         getAllProduct,
+        getAllProductFunction,
       }}
     >
       {children}
