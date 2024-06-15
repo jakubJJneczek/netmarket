@@ -1,44 +1,44 @@
 import Layout from "../../components/layout/Layout";
-import { Trash } from "lucide-react";
+// import { Trash } from "lucide-react";
 
-const products = [
-  {
-    id: 1,
-    name: "Nike Air Force 1 07 LV8",
-    href: "#",
-    price: "₹47,199",
-    originalPrice: "₹48,900",
-    discount: "5% Off",
-    color: "Orange",
-    size: "8 UK",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png",
-  },
-  {
-    id: 2,
-    name: "Nike Blazer Low 77 SE",
-    href: "#",
-    price: "₹1,549",
-    originalPrice: "₹2,499",
-    discount: "38% off",
-    color: "White",
-    leadTime: "3-4 weeks",
-    size: "8 UK",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png",
-  },
-  {
-    id: 3,
-    name: "Nike Air Max 90",
-    href: "#",
-    price: "₹2219 ",
-    originalPrice: "₹999",
-    discount: "78% off",
-    color: "Black",
-    imageSrc:
-      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png",
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "Nike Air Force 1 07 LV8",
+//     href: "#",
+//     price: "₹47,199",
+//     originalPrice: "₹48,900",
+//     discount: "5% Off",
+//     color: "Orange",
+//     size: "8 UK",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Nike Blazer Low 77 SE",
+//     href: "#",
+//     price: "₹1,549",
+//     originalPrice: "₹2,499",
+//     discount: "38% off",
+//     color: "White",
+//     leadTime: "3-4 weeks",
+//     size: "8 UK",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e48d6035-bd8a-4747-9fa1-04ea596bb074/blazer-low-77-se-shoes-0w2HHV.png",
+//   },
+//   {
+//     id: 3,
+//     name: "Nike Air Max 90",
+//     href: "#",
+//     price: "₹2219 ",
+//     originalPrice: "₹999",
+//     discount: "78% off",
+//     color: "Black",
+//     imageSrc:
+//       "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd17b420-b388-4c8a-aaaa-e0a98ddf175f/dunk-high-retro-shoe-DdRmMZ.png",
+//   },
+// ];
 
 const CartPage = () => {
   return (
@@ -57,7 +57,7 @@ const CartPage = () => {
                 Items in your shopping cart
               </h2>
               <ul role="list" className="divide-y divide-gray-200">
-                {products.map((product) => (
+                {/* {products.map((product) => (
                   <div key={product.id} className="">
                     <li className="flex py-6 sm:py-6 ">
                       <div className="flex-shrink-0">
@@ -137,7 +137,7 @@ const CartPage = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </ul>
             </section>
             {/* Order summary */}
@@ -153,38 +153,16 @@ const CartPage = () => {
               </h2>
               <div>
                 <dl className=" space-y-1 px-2 py-4">
-                  <div className="flex items-center justify-between">
-                    <dt className="text-sm text-gray-800">Price (3 item)</dt>
-                    <dd className="text-sm font-medium text-gray-900">
-                      ₹ 52,398
-                    </dd>
-                  </div>
-                  <div className="flex items-center justify-between pt-4">
-                    <dt className="flex items-center text-sm text-gray-800">
-                      <span>Discount</span>
-                    </dt>
-                    <dd className="text-sm font-medium text-green-700">
-                      - ₹ 3,431
-                    </dd>
-                  </div>
-                  <div className="flex items-center justify-between py-4">
-                    <dt className="flex text-sm text-gray-800">
-                      <span>Delivery Charges</span>
-                    </dt>
-                    <dd className="text-sm font-medium text-green-700">Free</dd>
-                  </div>
                   <div className="flex items-center justify-between border-y border-dashed py-4 ">
                     <dt className="text-base font-medium text-gray-900">
                       Total Amount
                     </dt>
-                    <dd className="text-base font-medium text-gray-900">
-                      ₹ 48,967
-                    </dd>
+                    <dd className="text-base font-medium text-gray-900">zł</dd>
                   </div>
                 </dl>
                 <div className="px-2 pb-4 font-medium text-green-700">
                   <div className="flex gap-4 mb-6">
-                    <button className="w-full px-4 py-3 text-center text-gray-100 bg-pink-600 border border-transparent dark:border-gray-700 hover:border-pink-500 hover:text-pink-700 hover:bg-pink-100 rounded-xl">
+                    <button className="w-full px-4 py-3 text-center text-gray-100 bg-gray-600 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl">
                       Buy now
                     </button>
                   </div>

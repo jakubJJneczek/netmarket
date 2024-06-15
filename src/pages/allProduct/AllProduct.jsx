@@ -6,80 +6,20 @@ const productData = [
   {
     id: 1,
     image:
-      "https://i.pinimg.com/564x/3e/05/ce/3e05cefbc7eec79ac175ea8490a67939.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/40/4021452/Laptop-ASUS-X515EA-BQ1877-01-front.jpg",
+    title: "ASUS X515EA i5 8/512",
     desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 150,
+    price: 2300,
     trendingProductName: "Featured",
     quantity: 1,
   },
   {
     id: 2,
     image:
-      "https://i.pinimg.com/736x/e4/61/f2/e461f2246b6ad93e2099d98780626396.jpg",
-    title: "Kaushalam kalash Copper Pot",
+      "https://a.allegroimg.com/original/11313e/dc5f9bf7493295d6bdb71ffcb435/Smartfon-Apple-iPhone-14-Pro-6-GB-128-GB-5G-Space-Black",
+    title: "IPhone 14 PRO 256 GB",
     desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 120,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image:
-      "https://i.pinimg.com/564x/fd/50/68/fd50688767adb47aba7204f034554cbd.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 130,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 4,
-    image:
-      "https://i.pinimg.com/564x/22/80/8d/22808d88ada424962f2e064f3075b2d1.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 120,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 1,
-    image:
-      "https://i.pinimg.com/564x/3e/05/ce/3e05cefbc7eec79ac175ea8490a67939.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 150,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    image:
-      "https://i.pinimg.com/736x/e4/61/f2/e461f2246b6ad93e2099d98780626396.jpg",
-    title: "Kaushalam kalash Copper Pot",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 120,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 3,
-    image:
-      "https://i.pinimg.com/564x/fd/50/68/fd50688767adb47aba7204f034554cbd.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 130,
-    trendingProductName: "Featured",
-    quantity: 1,
-  },
-  {
-    id: 4,
-    image:
-      "https://i.pinimg.com/564x/22/80/8d/22808d88ada424962f2e064f3075b2d1.jpg",
-    title: "Hand Painted Blue Kaushalam Tea Pot in Aluminium",
-    desc: "Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium, handmade by Mrinalika Jain. Fair pricing. Ethically made. Positive impact.",
-    price: 120,
+    price: 4200,
     trendingProductName: "Featured",
     quantity: 1,
   },
@@ -113,14 +53,11 @@ const AllProduct = () => {
                         alt="blog"
                       />
                       <div className="p-6">
-                        <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                          E-bharat
-                        </h2>
                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                           {title.substring(0, 25)}
                         </h1>
                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                          ₹{price}
+                          {price} zł
                         </h1>
 
                         <div className="flex justify-center ">

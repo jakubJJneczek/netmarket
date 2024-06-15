@@ -5,37 +5,37 @@ const searchData = [
   {
     name: "Laptopy",
     image:
-      "https://i.pinimg.com/564x/3e/05/ce/3e05cefbc7eec79ac175ea8490a67939.jpg",
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/40/4021452/Laptop-ASUS-X515EA-BQ1877-01-front.jpg",
   },
   {
     name: "Smarfony",
     image:
-      "https://i.pinimg.com/736x/e4/61/f2/e461f2246b6ad93e2099d98780626396.jpg",
+      "https://a.allegroimg.com/original/11313e/dc5f9bf7493295d6bdb71ffcb435/Smartfon-Apple-iPhone-14-Pro-6-GB-128-GB-5G-Space-Black",
   },
   {
     name: "TV",
     image:
-      "https://i.pinimg.com/564x/fd/50/68/fd50688767adb47aba7204f034554cbd.jpg",
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/57/5718208/Telewizor-SHARP-FH2EA-skos-1.jpg",
   },
   {
     name: "Gaming",
     image:
-      "https://i.pinimg.com/564x/22/80/8d/22808d88ada424962f2e064f3075b2d1.jpg",
+      "https://mocnykomputer.pl/environment/cache/images/500_500_productGfx_410046/pc_gungnir_110r.png",
   },
   {
     name: "Foto",
     image:
-      "https://i.pinimg.com/564x/3e/05/ce/3e05cefbc7eec79ac175ea8490a67939.jpg",
+      "https://fotoforma.pl/environment/cache/images/500_500_productGfx_136720/aparat-canon-eos-r7-body_1.jpg",
   },
   {
     name: "Tablety",
     image:
-      "https://i.pinimg.com/736x/e4/61/f2/e461f2246b6ad93e2099d98780626396.jpg",
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/zdjecia_do_zestawow/Z464544-6491978.jpeg",
   },
   {
-    name: "Outlet",
+    name: "Słuchawki",
     image:
-      "https://i.pinimg.com/564x/fd/50/68/fd50688767adb47aba7204f034554cbd.jpg",
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/37/3784350/Sluchawki-nauszne-SONY-WH-1000XM5B-ANC-Czarny-skos.jpg",
   },
 ];
 

@@ -1,32 +1,39 @@
 // category
 const category = [
   {
-    image: "",
+    image:
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/40/4021452/Laptop-ASUS-X515EA-BQ1877-01-front.jpg",
     name: "Laptopy",
   },
   {
-    image: "",
+    image:
+      "https://a.allegroimg.com/original/11313e/dc5f9bf7493295d6bdb71ffcb435/Smartfon-Apple-iPhone-14-Pro-6-GB-128-GB-5G-Space-Black",
     name: "Smatfony",
   },
   {
-    image: "",
+    image:
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/57/5718208/Telewizor-SHARP-FH2EA-skos-1.jpg",
     name: "TV",
   },
   {
-    image: "",
+    image:
+      "https://mocnykomputer.pl/environment/cache/images/500_500_productGfx_410046/pc_gungnir_110r.png",
     name: "Gaming",
   },
   {
-    image: "",
+    image:
+      "https://fotoforma.pl/environment/cache/images/500_500_productGfx_136720/aparat-canon-eos-r7-body_1.jpg",
     name: "Foto",
   },
   {
-    image: "",
+    image:
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/zdjecia_do_zestawow/Z464544-6491978.jpeg",
     name: "Tablety",
   },
   {
-    image: "",
-    name: "Outlet",
+    image:
+      "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/37/3784350/Sluchawki-nauszne-SONY-WH-1000XM5B-ANC-Czarny-skos.jpg",
+    name: "Słuchawki",
   },
 ];
 
