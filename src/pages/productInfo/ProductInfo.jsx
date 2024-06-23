@@ -1,6 +1,33 @@
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
+import myContext from "../../context/myContext";
+import { useParams } from "react-router";
+import { fireDB } from "../../firebase/FirebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 const ProductInfo = () => {
+  const context = useContext(myContext);
+  const { setLoading } = context;
+
+  const [product, setProduct] = useState("");
+
+  const { id } = useParams();
+
+  const getProductData = async () => {
+    setLoading(true);
+    try {
+      const productTemp = await getDoc(doc(fireDB, "product", id));
+      setProduct(productTemp.data());
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProductData();
+  }, []);
   return (
     <Layout>
       <section className="py-5 lg:py-16 font-poppins dark:bg-gray-800">
@@ -10,8 +37,8 @@ const ProductInfo = () => {
               <div className="">
                 <div className="">
                   <img
-                    className=" w-full lg:h-[39em] rounded-lg"
-                    src="https://a.allegroimg.com/original/11313e/dc5f9bf7493295d6bdb71ffcb435/Smartfon-Apple-iPhone-14-Pro-6-GB-128-GB-5G-Space-Black"
+                    className=" w-full lg:h-[31em] rounded-lg"
+                    src={product?.productImageurl}
                     alt="img"
                   />
                 </div>
@@ -21,7 +48,7 @@ const ProductInfo = () => {
               <div className="lg:pl-20">
                 <div className="mb-6 ">
                   <h2 className="max-w-xl mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
-                    Apple iPhone 14 PRO 256GB
+                    {product?.title}
                   </h2>
                   <div className="flex flex-wrap items-center mb-6">
                     <ul className="flex mb-4 mr-2 lg:mb-0">
@@ -84,48 +111,19 @@ const ProductInfo = () => {
                     </ul>
                   </div>
                   <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
-                    <span>4200 zł</span>
+                    <span>{product?.price} zł</span>
                   </p>
                 </div>
                 <div className="mb-6">
                   <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">
-                    Description:
+                    Description :
                   </h2>
-                  <p>
-                    iPhone 14 Pro to jeden z dwóch zaawansowanych smartfonów
-                    Apple na 2022 rok. Przynosi zmieniony design, w którym notch
-                    został porzucony na rzecz Dynamic Island. Dodatkowo
-                    6,1-calowy ekran ProMotion wspiera tu funkcję always-on i
-                    wyższą jasność maksymalną 2000 nitów. Bardzo ważną nowością
-                    jest procesor A16 Bionic, absolutny top na rynku urządzeń
-                    mobilnych. Względem zeszłorocznych propozycji znacząco
-                    usprawniono także aparat fotograficzny, między innymi
-                    poprzez nowy obiektyw główny 48 Mpix oraz przedni dodając do
-                    niego autofokus.
-                  </p>
-                  <br />
-                  <p>
-                    <strong>Najważniejsze cechy:</strong>
-                    <br />
-                    <strong>System operacyjny:</strong> iOS 16
-                    <br />
-                    <strong>Wyświetlacz (przekątna):</strong> 6,1 cale/cali
-                    <br />
-                    <strong>Wyświetlacz (rozdzielczość):</strong> 2556x1179 px
-                    <br />
-                    <strong>Procesor główny (nazwa):</strong> A16 Bionic
-                    <br />
-                    <strong>Pamięć masowa:</strong> 256 GB
-                    <br />
-                    <strong>Aparat (tył):</strong> 48 MPix + 12 MPix + 12 MPix
-                    <br />
-                    <strong>Waga:</strong> 206 g
-                  </p>
+                  <p>{product?.description}</p>
                 </div>
 
-                <div className="mb-6 "></div>
+                <div className="mb-6 " />
                 <div className="flex flex-wrap items-center mb-6">
-                  <button className="w-full px-4 py-3 text-center text-gray-600 bg-gray-100 border border-gray-600  hover:bg-gray-600 hover:text-gray-100 rounded-xl">
+                  <button className="w-full px-4 py-3 text-center text-gray-600 bg-gray-100 border border-gray-600  hover:bg-green-600 hover:text-gray-100  rounded-xl">
                     Add to cart
                   </button>
                 </div>

@@ -7,34 +7,31 @@ import toast from "react-hot-toast";
 
 const categoryList = [
   {
-    name: "fashion",
+    name: "Laptopy",
   },
   {
-    name: "shirt",
+    name: "Smatfony",
   },
   {
-    name: "jacket",
+    name: "TV",
   },
   {
-    name: "mobile",
+    name: "Gaming",
   },
   {
-    name: "laptop",
+    name: "Foto",
   },
   {
-    name: "shoes",
+    name: "Tablety",
   },
   {
-    name: "home",
-  },
-  {
-    name: "books",
+    name: "Słuchawki",
   },
 ];
 
 const UpdateProductPage = () => {
   const context = useContext(myContext);
-  const { loading, setLoading, getAllProductFunction } = context;
+  const { setLoading, getAllProductFunction } = context;
 
   //navigate
   const navigate = useNavigate();
