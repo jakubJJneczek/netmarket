@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -8,12 +8,9 @@ import toast from "react-hot-toast";
 const ProductDetail = () => {
   const context = useContext(myContext);
   const { setLoading, getAllProduct, getAllProductFunction } = context;
-  // console.log(getAllProduct)
 
-  // navigate
   const navigate = useNavigate();
 
-  // Delete product
   const deleteProduct = async (id) => {
     setLoading(true);
     try {
@@ -26,108 +23,83 @@ const ProductDetail = () => {
       setLoading(false);
     }
   };
+
   return (
     <div>
       <div className="py-5 flex justify-between items-center">
-        {/* text  */}
-        <h1 className=" text-xl text-pink-300 font-bold">All Product</h1>
-        {/* Add Product Button  */}
+        <h1 className="text-xl text-gray-600 font-bold">All Products</h1>
         <Link to={"/addproduct"}>
-          <button className="px-5 py-2 bg-pink-50 border border-pink-100 rounded-lg">
+          <button className="px-5 py-2 bg-gray-50 border border-gray-100 rounded-lg hover:bg-gray-100">
             Add Product
           </button>
         </Link>
       </div>
 
-      {/* table  */}
       <div className="w-full overflow-x-auto mb-5">
-        <table className="w-full text-left border border-collapse sm:border-separate border-pink-100 text-pink-400">
-          <tbody>
+        <table className="w-full text-left border-collapse sm:border-separate border-gray-100 text-gray-600">
+          <thead>
             <tr>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100 font-bold fontPara"
-              >
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 No.
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100 font-bold fontPara"
-              >
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 Image
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 Title
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 Price
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 Category
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
-                {" "}
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
                 Date
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
-                Action
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+                Edit
               </th>
-              <th
-                scope="col"
-                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
-              >
-                Action
+              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+                Delete
               </th>
             </tr>
+          </thead>
+          <tbody>
             {getAllProduct.map((item, index) => {
               const { id, title, price, category, date, productImageurl } =
                 item;
               return (
-                <tr key={index} className="text-pink-300">
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 ">
+                <tr key={index} className="hover:bg-gray-50">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     {index + 1}.
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     <div className="flex justify-center">
-                      <img className="w-20 " src={productImageurl} alt="" />
+                      <img className="w-20" src={productImageurl} alt="" />
                     </div>
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     {title}
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     {price} zł
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     {category}
                   </td>
-                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                  <td className="h-12 px-6 text-md border border-gray-100">
                     {date}
                   </td>
                   <td
                     onClick={() => navigate(`/updateproduct/${id}`)}
-                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 text-green-500 cursor-pointer "
+                    className="h-12 px-6 text-md border border-gray-100 text-green-500 cursor-pointer hover:underline"
                   >
                     Edit
                   </td>
                   <td
                     onClick={() => deleteProduct(id)}
-                    className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 text-red-500 cursor-pointer "
+                    className="h-12 px-6 text-md border border-gray-100 text-red-500 cursor-pointer hover:underline"
                   >
                     Delete
                   </td>
