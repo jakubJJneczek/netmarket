@@ -4,7 +4,6 @@ import myContext from "../../context/myContext";
 import { useParams } from "react-router";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
@@ -157,14 +156,14 @@ const ProductInfo = () => {
                   ) : (
                     <button
                       onClick={() => addCart(product)}
-                      className="w-full px-4 py-3 text-center text-pink-600 bg-pink-100 border border-pink-600  hover:bg-pink-600 hover:text-gray-100  rounded-xl"
+                      className="w-full px-4 py-3 text-center text-green-600 bg-green-100 border border-green-600  hover:bg-green-600 hover:text-green-100  rounded-xl"
                     >
                       Add to cart
                     </button>
                   )}
                 </div>
                 <div className="flex gap-4 mb-6">
-                  <button className="w-full px-4 py-3 text-center text-gray-100 bg-pink-600 border border-transparent dark:border-gray-700 hover:border-pink-500 hover:text-pink-700 hover:bg-pink-100 rounded-xl">
+                  <button className="w-full px-4 py-3 text-center text-gray-100 bg-gray-600 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl">
                     Buy now
                   </button>
                 </div>

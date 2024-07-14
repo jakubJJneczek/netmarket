@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Layout from "../../components/layout/Layout";
 
 const UserDashboard = () => {

@@ -64,7 +64,7 @@ const AddProductPage = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="bg-gray-50 px-8 py-6 border border-gray-200 rounded-xl shadow-md">
         <div className="mb-5">
-          <h2 className="text-center text-2xl font-bold text-gray-600">
+          <h2 className="text-center text-2xl font-bold text-gray-800">
             Add Product
           </h2>
         </div>
@@ -76,7 +76,7 @@ const AddProductPage = () => {
             value={product.title}
             onChange={(e) => setProduct({ ...product, title: e.target.value })}
             placeholder="Product Title"
-            className="bg-gray-50 border text-gray-600 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400"
+            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -87,7 +87,7 @@ const AddProductPage = () => {
             value={product.price}
             onChange={(e) => setProduct({ ...product, price: e.target.value })}
             placeholder="Product Price"
-            className="bg-gray-50 border text-gray-600 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400"
+            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -100,7 +100,7 @@ const AddProductPage = () => {
               setProduct({ ...product, productImageurl: e.target.value })
             }
             placeholder="Product Image URL"
-            className="bg-gray-50 border text-gray-600 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400"
+            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -110,7 +110,7 @@ const AddProductPage = () => {
             onChange={(e) =>
               setProduct({ ...product, category: e.target.value })
             }
-            className="w-full px-2 py-2 text-gray-600 bg-gray-50 border border-gray-300 rounded-md outline-none"
+            className="w-full px-2 py-2 text-gray-800 bg-gray-50 border border-gray-300 rounded-md outline-none"
           >
             <option disabled>Select Product Category</option>
             {categoryList.map((value, index) => (
@@ -130,7 +130,7 @@ const AddProductPage = () => {
             name="description"
             placeholder="Product Description"
             rows="5"
-            className="w-full px-2 py-1 text-gray-600 bg-gray-50 border border-gray-300 rounded-md outline-none placeholder-gray-400"
+            className="w-full px-2 py-1 text-gray-800 bg-gray-50 border border-gray-300 rounded-md outline-none placeholder-gray-800"
           ></textarea>
         </div>
 

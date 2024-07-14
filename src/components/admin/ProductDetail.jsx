@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
@@ -27,7 +28,7 @@ const ProductDetail = () => {
   return (
     <div>
       <div className="py-5 flex justify-between items-center">
-        <h1 className="text-xl text-gray-600 font-bold">All Products</h1>
+        <h1 className="text-xl text-gray-800 font-bold">All Products</h1>
         <Link to={"/addproduct"}>
           <button className="px-5 py-2 bg-gray-50 border border-gray-100 rounded-lg hover:bg-gray-100">
             Add Product
@@ -36,31 +37,31 @@ const ProductDetail = () => {
       </div>
 
       <div className="w-full overflow-x-auto mb-5">
-        <table className="w-full text-left border-collapse sm:border-separate border-gray-100 text-gray-600">
+        <table className="w-full text-left border-collapse sm:border-separate border-gray-100 text-gray-800">
           <thead>
             <tr>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 No.
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Image
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Title
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Price
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Category
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Date
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Edit
               </th>
-              <th className="h-12 px-6 text-md border border-gray-100 bg-gray-100 font-bold">
+              <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
                 Delete
               </th>
             </tr>

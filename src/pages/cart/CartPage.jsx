@@ -51,9 +51,6 @@ const CartPage = () => {
               aria-labelledby="cart-heading"
               className="rounded-lg bg-white lg:col-span-8"
             >
-              <h2 id="cart-heading" className="sr-only">
-                Items in your shopping cart
-              </h2>
               <ul role="list" className="divide-y divide-gray-200">
                 {cartItems.length > 0 ? (
                   <>
@@ -166,12 +163,7 @@ const CartPage = () => {
                       {cartTotal} zł
                     </dd>
                   </div>
-                  <div className="flex items-center justify-between py-4">
-                    <dt className="flex text-sm text-gray-800">
-                      <span>Delivery Charges</span>
-                    </dt>
-                    <dd className="text-sm font-medium text-green-700">Free</dd>
-                  </div>
+
                   <div className="flex items-center justify-between border-y border-dashed py-4 ">
                     <dt className="text-base font-medium text-gray-900">
                       Total Amount
@@ -183,7 +175,7 @@ const CartPage = () => {
                 </dl>
                 <div className="px-2 pb-4 font-medium text-green-700">
                   <div className="flex gap-4 mb-6">
-                    <button className="w-full px-4 py-3 text-center text-gray-100 bg-pink-600 border border-transparent dark:border-gray-700 hover:border-pink-500 hover:text-pink-700 hover:bg-pink-100 rounded-xl">
+                    <button className="w-full px-4 py-3 text-center text-gray-100 bg-gray-600 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl">
                       Buy now
                     </button>
                   </div>

@@ -104,7 +104,7 @@ const UpdateProductPage = () => {
         <div className="login_Form bg-gray-50 px-8 py-6 border border-gray-100 rounded-xl shadow-md">
           {/* Top Heading  */}
           <div className="mb-5">
-            <h2 className="text-center text-2xl font-bold text-gray-500 ">
+            <h2 className="text-center text-2xl font-bold text-gray-800 ">
               Update Product
             </h2>
           </div>
@@ -122,7 +122,7 @@ const UpdateProductPage = () => {
                 });
               }}
               placeholder="Product Title"
-              className="bg-gray-50 border text-gray-300 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-300"
+              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -139,7 +139,7 @@ const UpdateProductPage = () => {
                 });
               }}
               placeholder="Product Price"
-              className="bg-gray-50 border text-gray-300 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-300"
+              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -156,7 +156,7 @@ const UpdateProductPage = () => {
               }}
               value={product.productImageurl}
               placeholder="Product Image Url"
-              className="bg-gray-50 border text-gray-300 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-300"
+              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -170,7 +170,7 @@ const UpdateProductPage = () => {
                   category: e.target.value,
                 });
               }}
-              className="w-full px-1 py-2 text-gray-300 bg-gray-50 border border-gray-200 rounded-md outline-none  "
+              className="w-full px-1 py-2 text-gray-800 bg-gray-50 border border-gray-200 rounded-md outline-none  "
             >
               <option disabled>Select Product Category</option>
               {categoryList.map((value, index) => {
@@ -201,7 +201,7 @@ const UpdateProductPage = () => {
                 });
               }}
               rows="5"
-              className=" w-full px-2 py-1 text-gray-300 bg-gray-50 border border-gray-200 rounded-md outline-none placeholder-gray-300 "
+              className=" w-full px-2 py-1 text-gray-800 bg-gray-50 border border-gray-200 rounded-md outline-none placeholder-gray-800 "
             ></textarea>
           </div>
 
