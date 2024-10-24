@@ -9,7 +9,7 @@ import Layout from "../../components/layout/Layout";
 const AdminDashboard = () => {
   const user = JSON.parse(localStorage.getItem("users"));
   const context = useContext(myContext);
-  const { getAllProduct } = context;
+  const { getAllProduct, getAllOrder } = context;
   return (
     <Layout>
       <div>
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
                       </svg>
                     </div>
                     <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">
-                      10
+                      {getAllOrder.length}
                     </h2>
                     <p className=" text-gray-500  font-bold">Total Order</p>
                   </div>
