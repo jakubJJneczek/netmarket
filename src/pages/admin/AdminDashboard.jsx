@@ -9,16 +9,14 @@ import Layout from "../../components/layout/Layout";
 const AdminDashboard = () => {
   const user = JSON.parse(localStorage.getItem("users"));
   const context = useContext(myContext);
-  const { getAllProduct, getAllOrder } = context;
+  const { getAllProduct, getAllOrder, getAllUser } = context;
   return (
     <Layout>
       <div>
         {/* Top */}
         <div className="top mb-5 px-5 mt-5">
           <div className=" bg-gray-200 py-5 border border-gray-100 rounded-lg">
-            <h1 className=" text-center text-2xl font-bold text-gray-500">
-              Admin Dashboard
-            </h1>
+            <h1 className=" text-center text-2xl font-bold text-gray-500">Admin Dashboard</h1>
           </div>
         </div>
 
@@ -84,9 +82,7 @@ const AdminDashboard = () => {
                         <path d="m15 11-1 9" />
                       </svg>
                     </div>
-                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">
-                      {getAllProduct.length}
-                    </h2>
+                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">{getAllProduct.length}</h2>
                     <p className=" text-gray-500  font-bold">Total Products</p>
                   </div>
                 </Tab>
@@ -115,9 +111,7 @@ const AdminDashboard = () => {
                         <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" />
                       </svg>
                     </div>
-                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">
-                      {getAllOrder.length}
-                    </h2>
+                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">{getAllOrder.length}</h2>
                     <p className=" text-gray-500  font-bold">Total Order</p>
                   </div>
                 </Tab>
@@ -144,10 +138,8 @@ const AdminDashboard = () => {
                         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                       </svg>
                     </div>
-                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">
-                      10
-                    </h2>
-                    <p className=" text-gray-500  font-bold">Total Order</p>
+                    <h2 className="title-font font-medium text-3xl text-gray-400 fonts1">{getAllUser.length}</h2>
+                    <p className=" text-gray-500  font-bold">Total Users</p>
                   </div>
                 </Tab>
               </TabList>
