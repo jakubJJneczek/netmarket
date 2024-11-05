@@ -59,7 +59,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                   pincode: e.target.value,
                 });
               }}
-              placeholder="Enter your pincode"
+              placeholder="Enter your post code"
               className="bg-gray-50 border border-gray-200 px-2 py-2 w-full rounded-md outline-none text-gray-600 text-gray-600 placeholder-gray-300"
             />
           </div>
