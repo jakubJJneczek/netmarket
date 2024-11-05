@@ -144,7 +144,7 @@ const OrderDetail = () => {
                         quantity,
                       } = item;
                       return (
-                        <tr key={index} className="text-gray-300">
+                        <tr key={index} className="text-gray-800">
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 ">
                             {index + 1}
                           </td>
