@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import MyContext from "./myContext";
-import { collection, onSnapshot, orderBy, query, QuerySnapshot } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { fireDB } from "../firebase/FirebaseConfig";
 import { doc } from "firebase/firestore/lite";
 import toast from "react-hot-toast";
@@ -66,6 +66,7 @@ function MyState({ children }) {
     setLoading(true);
 
     try {
+      // eslint-disable-next-line no-undef
       await deleteDoc(doc(fireDB, "order", id));
       toast.success("Order Deleted succesfully");
       getAllOrderFunction();

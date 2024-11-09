@@ -11,9 +11,9 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
       <Button
         type="button"
         onClick={handleOpen}
-        className="w-full px-4 py-3 text-center text-gray-100 bg-gray-600 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl"
+        className="w-full px-4 py-3 text-center text-gray-100 bg-gray-500 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl"
       >
-        Buy now
+        Kup teraz
       </Button>
       <Dialog open={open} handler={handleOpen} className=" bg-gray-50">
         <DialogBody className="">
@@ -28,8 +28,8 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                   name: e.target.value,
                 });
               }}
-              placeholder="Enter your name"
-              className="bg-gray-50 border border-gray-200 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-300"
+              placeholder="Podaj swoje imię"
+              className=" border border-gray-500 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-800"
             />
           </div>
           <div className="mb-3">
@@ -43,8 +43,8 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                   address: e.target.value,
                 });
               }}
-              placeholder="Enter your address"
-              className="bg-gray-50 border border-gray-200 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-300"
+              placeholder="Podaj swój adres email"
+              className="border border-gray-500 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-800"
             />
           </div>
 
@@ -59,8 +59,8 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                   pincode: e.target.value,
                 });
               }}
-              placeholder="Enter your post code"
-              className="bg-gray-50 border border-gray-200 px-2 py-2 w-full rounded-md outline-none text-gray-600 text-gray-600 placeholder-gray-300"
+              placeholder="Podaj swój kod pocztowy"
+              className="border border-gray-500 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-800"
             />
           </div>
 
@@ -75,8 +75,8 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                   mobileNumber: e.target.value,
                 });
               }}
-              placeholder="Enter your mobileNumber"
-              className="bg-gray-50 border border-gray-200 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-300"
+              placeholder="Podaj swój numer telefonu"
+              className="border border-gray-500 px-2 py-2 w-full rounded-md outline-none text-gray-600 placeholder-gray-800"
             />
           </div>
 
@@ -87,9 +87,9 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                 handleOpen();
                 buyNowFunction();
               }}
-              className="w-full px-4 py-3 text-center text-gray-100 bg-gray-600 border border-transparent dark:border-gray-700 rounded-lg"
+              className="w-full px-4 py-3 text-center text-gray-100 bg-gray-500 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl"
             >
-              Buy now
+              Kup teraz
             </Button>
           </div>
         </DialogBody>

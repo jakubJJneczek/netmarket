@@ -10,7 +10,7 @@ const UserDetail = () => {
       <div>
         <div className="py-5 flex justify-between items-center">
           {/* text  */}
-          <h1 className=" text-xl text-gray-800 font-bold">All User</h1>
+          <h1 className=" text-xl  font-bold">Wszyscy użytkownicy</h1>
         </div>
 
         {/* table  */}
@@ -22,37 +22,37 @@ const UserDetail = () => {
                   scope="col"
                   className="h-12 px-6 text-md border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100 font-bold fontPara"
                 >
-                  No.
+                  Nr.
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
                 >
-                  Name
+                  Imię
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
                 >
-                  email
+                  Email
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
                 >
-                  Uid
+                  ID
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
                 >
-                  Role
+                  Rola
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
                 >
-                  Date
+                  Data
                 </th>
               </tr>
 
@@ -60,7 +60,7 @@ const UserDetail = () => {
                 return (
                   <tr key={index} className="text-gray-800">
                     <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 ">
-                      {index + 1}.
+                      {index + 1}
                     </td>
                     <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
                       {item.name}
@@ -75,7 +75,7 @@ const UserDetail = () => {
                       {item.role}
                     </td>
                     <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 text-red-500 cursor-pointer ">
-                      {"date"}
+                      {item.date}
                     </td>
                   </tr>
                 );

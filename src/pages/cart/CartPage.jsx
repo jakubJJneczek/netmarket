@@ -19,7 +19,7 @@ const CartPage = () => {
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
-    toast.success("Delete cart");
+    toast.success("Usunięto z koszyka");
   };
 
   const handleIncrement = (id) => {
@@ -66,7 +66,7 @@ const CartPage = () => {
       addressInfo.pincode === "" ||
       addressInfo.mobileNumber === ""
     ) {
-      return toast.error("All Fields are required");
+      return toast.error("Wypełnij wszystkie pola");
     }
 
     // Order Info
@@ -92,7 +92,7 @@ const CartPage = () => {
         pincode: "",
         mobileNumber: "",
       });
-      toast.success("Order Placed Successfull");
+      toast.success("Zamówienie złożone pomyślnie");
     } catch (error) {
       console.log(error);
     }
@@ -103,7 +103,7 @@ const CartPage = () => {
       <div className="container mx-auto px-4 max-w-7xl px-2 lg:px-0">
         <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Shopping Cart
+            Twój Koszyk
           </h1>
           <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             <section
@@ -187,7 +187,7 @@ const CartPage = () => {
                               >
                                 <Trash size={12} className="text-red-500" />
                                 <span className="text-xs font-medium text-red-500">
-                                  Remove
+                                  Usuń
                                 </span>
                               </button>
                             </div>
@@ -197,7 +197,7 @@ const CartPage = () => {
                     })}
                   </>
                 ) : (
-                  <h1>Not Found</h1>
+                  <h1>Brak produktów w Twoim koszyku</h1>
                 )}
               </ul>
             </section>
@@ -210,24 +210,15 @@ const CartPage = () => {
                 id="summary-heading"
                 className=" border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
               >
-                Price Details
+                Do zapłaty
               </h2>
               <div>
                 <dl className=" space-y-1 px-2 py-4">
                   <div className="flex items-center justify-between">
-                    <dt className="text-sm text-gray-800">
-                      Price ({cartItemTotal} item)
+                    <dt className="border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4">
+                      Cena ({cartItemTotal} szt.)
                     </dt>
                     <dd className="text-sm font-medium text-gray-900">
-                      {cartTotal} zł
-                    </dd>
-                  </div>
-
-                  <div className="flex items-center justify-between border-y border-dashed py-4 ">
-                    <dt className="text-base font-medium text-gray-900">
-                      Total Amount
-                    </dt>
-                    <dd className="text-base font-medium text-gray-900">
                       {cartTotal} zł
                     </dd>
                   </div>

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import { useSelector } from "react-redux";
+import Cart from "../cart/cart.jsx";
 
 const Navbar = () => {
   // get user from localStorage
@@ -15,23 +16,24 @@ const Navbar = () => {
     navigate("/login");
   };
   const cartItems = useSelector((state) => state.cart);
+  console.log(cartItems);
   // navList Data
   const navList = (
-    <ul className="flex space-x-3 text-white font-medium text-md px-5 ">
+    <ul className="flex space-x-3 text-white font-medium text-md px-5 items-center">
       {/* Home */}
       <li>
-        <Link to={"/"}>Home</Link>
+        <Link to={"/"}>Strona główna</Link>
       </li>
 
       {/* All Product */}
       <li>
-        <Link to={"/allproduct"}>All Product</Link>
+        <Link to={"/allproduct"}>Produkty</Link>
       </li>
 
       {/* Signup */}
       {!user ? (
         <li>
-          <Link to={"/signup"}>Signup</Link>
+          <Link to={"/signup"}>Zarejestruj</Link>
         </li>
       ) : (
         ""
@@ -40,7 +42,7 @@ const Navbar = () => {
       {/* Signup */}
       {!user ? (
         <li>
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/login"}>Zaloguj</Link>
         </li>
       ) : (
         ""
@@ -63,13 +65,15 @@ const Navbar = () => {
       {/* logout */}
       {user && (
         <li className=" cursor-pointer" onClick={logout}>
-          Logout
+          Wyloguj
         </li>
       )}
 
       {/* Cart */}
       <li>
-        <Link to={"/cart"}> Cart({cartItems.length}) </Link>
+        <Link to={"/cart"}>
+          <Cart cartItems={cartItems.length} />
+        </Link>
       </li>
     </ul>
   );
@@ -86,9 +90,12 @@ const Navbar = () => {
           </Link>
         </div>
         {/* Search Bar  */}
-        <SearchBar />
+
         {/* right  */}
-        <div className="right flex justify-center mb-4 lg:mb-0">{navList}</div>
+        <div className="right flex justify-center mb-4 lg:mb-0 items-center">
+          <SearchBar />
+          {navList}
+        </div>
       </div>
     </nav>
   );
