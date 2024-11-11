@@ -16,7 +16,7 @@ const ProductDetail = () => {
     setLoading(true);
     try {
       await deleteDoc(doc(fireDB, "product", id));
-      toast.success("Product Deleted successfully");
+      toast.success("Produkt usunięty pomyślnie");
       getAllProductFunction();
       setLoading(false);
     } catch (error) {
@@ -28,10 +28,10 @@ const ProductDetail = () => {
   return (
     <div>
       <div className="py-5 flex justify-between items-center">
-        <h1 className="text-xl text-gray-800 font-bold">All Products</h1>
+        <h1 className="text-xl  font-bold">Wszystkie produkty</h1>
         <Link to={"/addproduct"}>
-          <button className="px-5 py-2 bg-gray-50 border border-gray-100 rounded-lg hover:bg-gray-100">
-            Add Product
+          <button className="px-5 py-2 bg-gray-200 border border-gray-100 rounded-lg hover:bg-gray-100">
+            Dodaj produkt
           </button>
         </Link>
       </div>
@@ -41,28 +41,28 @@ const ProductDetail = () => {
           <thead>
             <tr>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                No.
+                Nr.
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Image
+                Zdjęcie
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Title
+                Tytuł
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Price
+                Cena
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Category
+                Kategoria
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Date
+                Data
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Edit
+                Edytuj
               </th>
               <th className="h-12 px-6 text-md border border-gray-100 bg-white font-bold">
-                Delete
+                Usuń
               </th>
             </tr>
           </thead>
@@ -73,7 +73,7 @@ const ProductDetail = () => {
               return (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="h-12 px-6 text-md border border-gray-100">
-                    {index + 1}.
+                    {index + 1}
                   </td>
                   <td className="h-12 px-6 text-md border border-gray-100">
                     <div className="flex justify-center">
@@ -96,13 +96,13 @@ const ProductDetail = () => {
                     onClick={() => navigate(`/updateproduct/${id}`)}
                     className="h-12 px-6 text-md border border-gray-100 text-green-500 cursor-pointer hover:underline"
                   >
-                    Edit
+                    Edytuj
                   </td>
                   <td
                     onClick={() => deleteProduct(id)}
                     className="h-12 px-6 text-md border border-gray-100 text-red-500 cursor-pointer hover:underline"
                   >
-                    Delete
+                    Usuń
                   </td>
                 </tr>
               );

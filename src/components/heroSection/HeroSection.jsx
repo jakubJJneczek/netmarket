@@ -1,7 +1,12 @@
 const HeroSection = () => {
   return (
     <div>
-      <img className="h-40 lg:h-full" src="1.png" alt="img" />
+      <img
+        src="src/assets/BANER.jpg"
+        alt="img"
+        id="herosection"
+        className="h-[500px] object-cover w-full"
+      />
     </div>
   );
 };

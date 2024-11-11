@@ -43,20 +43,20 @@ const AddProductPage = () => {
       product.category === "" ||
       product.description === ""
     ) {
-      return toast.error("All fields are required");
+      return toast.error("Wypełnij wszystkie pola");
     }
 
     setLoading(true);
     try {
       const productRef = collection(fireDB, "product");
       await addDoc(productRef, product);
-      toast.success("Product added successfully");
-      navigate("/admin-dashboard");
+      toast.success("Produkt dodany pomyślnie");
+      navigate("/admin-llydashboard");
       setLoading(false);
     } catch (error) {
       console.log(error);
       setLoading(false);
-      toast.error("Add product failed");
+      toast.error("Cos poszło nie tak");
     }
   };
 
@@ -64,9 +64,7 @@ const AddProductPage = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="bg-gray-50 px-8 py-6 border border-gray-200 rounded-xl shadow-md">
         <div className="mb-5">
-          <h2 className="text-center text-2xl font-bold text-gray-800">
-            Add Product
-          </h2>
+          <h2 className="text-center text-2xl font-bold ">Dodaj Produkt</h2>
         </div>
 
         <div className="mb-3">
@@ -75,8 +73,8 @@ const AddProductPage = () => {
             name="title"
             value={product.title}
             onChange={(e) => setProduct({ ...product, title: e.target.value })}
-            placeholder="Product Title"
-            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+            placeholder="Tytuł Produktu"
+            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -86,8 +84,8 @@ const AddProductPage = () => {
             name="price"
             value={product.price}
             onChange={(e) => setProduct({ ...product, price: e.target.value })}
-            placeholder="Product Price"
-            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+            placeholder="Cena"
+            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -99,8 +97,8 @@ const AddProductPage = () => {
             onChange={(e) =>
               setProduct({ ...product, productImageurl: e.target.value })
             }
-            placeholder="Product Image URL"
-            className="bg-gray-50 border text-gray-800 border-gray-300 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+            placeholder="Zdjecie Produktu (URL)"
+            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           />
         </div>
 
@@ -110,9 +108,9 @@ const AddProductPage = () => {
             onChange={(e) =>
               setProduct({ ...product, category: e.target.value })
             }
-            className="w-full px-2 py-2 text-gray-800 bg-gray-50 border border-gray-300 rounded-md outline-none"
+            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           >
-            <option disabled>Select Product Category</option>
+            <option disabled>Wybierz kategorie produktu</option>
             {categoryList.map((value, index) => (
               <option key={index} value={value.name} className="capitalize">
                 {value.name}
@@ -128,9 +126,9 @@ const AddProductPage = () => {
               setProduct({ ...product, description: e.target.value })
             }
             name="description"
-            placeholder="Product Description"
+            placeholder="Opis Produktu"
             rows="5"
-            className="w-full px-2 py-1 text-gray-800 bg-gray-50 border border-gray-300 rounded-md outline-none placeholder-gray-800"
+            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
           ></textarea>
         </div>
 
@@ -138,9 +136,9 @@ const AddProductPage = () => {
           <button
             onClick={addProductFunction}
             type="button"
-            className="bg-gray-600 hover:bg-gray-700 w-full text-white text-center py-2 font-bold rounded-md"
+            className="w-full px-4 py-3 text-center text-gray-100 bg-gray-500 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl "
           >
-            Add Product
+            Dodaj produkt
           </button>
         </div>
       </div>

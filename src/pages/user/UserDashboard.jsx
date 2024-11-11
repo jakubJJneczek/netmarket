@@ -22,25 +22,25 @@ const UserDashboard = () => {
             <div className="">
               {/* Name  */}
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Name : </span>
+                <span className=" font-bold">Imię: </span>
                 {user?.name}
               </h1>
 
               {/* Email  */}
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Email : </span>
+                <span className=" font-bold">Email: </span>
                 {user?.email}
               </h1>
 
               {/* Date  */}
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Date : </span>
+                <span className=" font-bold">Data: </span>
                 {user?.date}
               </h1>
 
               {/* Role  */}
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Role : </span>
+                <span className=" font-bold">Rola: </span>
                 {user?.role}
               </h1>
             </div>
@@ -52,7 +52,9 @@ const UserDashboard = () => {
           {/* main 1 */}
           <div className="mx-auto my-4 max-w-6xl px-2 md:my-6 md:px-0">
             {/* text  */}
-            <h2 className=" text-2xl lg:text-3xl font-bold">Order Details</h2>
+            <h2 className=" text-2xl lg:text-3xl font-bold">
+              Szczegóły zamówienia
+            </h2>
 
             <div className="flex justify-center relative top-10">
               {loading && <Loader />}
@@ -90,7 +92,7 @@ const UserDashboard = () => {
                               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-1">
                                 <div className="mb-4">
                                   <div className="text-sm font-semibold text-black">
-                                    Order Id
+                                    ID zamówienia
                                   </div>
                                   <div className="text-sm font-medium text-gray-900">
                                     #{id}
@@ -99,7 +101,7 @@ const UserDashboard = () => {
 
                                 <div className="mb-4">
                                   <div className="text-sm font-semibold">
-                                    Date
+                                    Data
                                   </div>
                                   <div className="text-sm font-medium text-gray-900">
                                     {date}
@@ -108,7 +110,7 @@ const UserDashboard = () => {
 
                                 <div className="mb-4">
                                   <div className="text-sm font-semibold">
-                                    Total Amount
+                                    Kwota
                                   </div>
                                   <div className="text-sm font-medium text-gray-900">
                                     {price * quantity} zł
@@ -117,7 +119,7 @@ const UserDashboard = () => {
 
                                 <div className="mb-4">
                                   <div className="text-sm font-semibold">
-                                    Order Status
+                                    Status zamówienia
                                   </div>
                                   <div className="text-sm font-medium text-green-800 first-letter:uppercase">
                                     {status}

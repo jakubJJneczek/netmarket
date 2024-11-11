@@ -85,7 +85,7 @@ const UpdateProductPage = () => {
     setLoading(true);
     try {
       await setDoc(doc(fireDB, "product", id), product);
-      toast.success("Product Updated sucesfully");
+      toast.success("Produkt zaktualizowany pomyślnie");
       getAllProductFunction();
       setLoading(false);
       navigate("/admin-dashboard");
@@ -104,8 +104,8 @@ const UpdateProductPage = () => {
         <div className="login_Form bg-gray-50 px-8 py-6 border border-gray-100 rounded-xl shadow-md">
           {/* Top Heading  */}
           <div className="mb-5">
-            <h2 className="text-center text-2xl font-bold text-gray-800 ">
-              Update Product
+            <h2 className="text-center text-2xl font-bold  ">
+              Zaktualizuj produkt
             </h2>
           </div>
 
@@ -121,8 +121,8 @@ const UpdateProductPage = () => {
                   title: e.target.value,
                 });
               }}
-              placeholder="Product Title"
-              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+              placeholder="Tytuł"
+              className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -138,8 +138,8 @@ const UpdateProductPage = () => {
                   price: e.target.value,
                 });
               }}
-              placeholder="Product Price"
-              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+              placeholder="Cena"
+              className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -155,8 +155,8 @@ const UpdateProductPage = () => {
                 });
               }}
               value={product.productImageurl}
-              placeholder="Product Image Url"
-              className="bg-gray-50 border text-gray-800 border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
+              placeholder="Zdjęcie Produktu (URL)"
+              className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
             />
           </div>
 
@@ -172,7 +172,7 @@ const UpdateProductPage = () => {
               }}
               className="w-full px-1 py-2 text-gray-800 bg-gray-50 border border-gray-200 rounded-md outline-none  "
             >
-              <option disabled>Select Product Category</option>
+              <option disabled>Wybierz kategorię produktu</option>
               {categoryList.map((value, index) => {
                 const { name } = value;
                 return (
@@ -192,7 +192,7 @@ const UpdateProductPage = () => {
           <div className="mb-3">
             <textarea
               name="description"
-              placeholder="Product Description"
+              placeholder="Opis produktu"
               value={product.description}
               onChange={(e) => {
                 setProduct({
@@ -210,9 +210,9 @@ const UpdateProductPage = () => {
             <button
               onClick={updateProduct}
               type="button"
-              className="bg-gray-500 hover:bg-gray-600 w-full text-white text-center py-2 font-bold rounded-md "
+              className="w-full px-4 py-3 text-center text-gray-100 bg-gray-500 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl "
             >
-              Update Product
+              Edytuj produkt
             </button>
           </div>
         </div>
