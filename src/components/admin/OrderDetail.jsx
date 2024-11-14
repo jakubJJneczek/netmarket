@@ -1,211 +1,72 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import myContext from "../../context/myContext";
+import "../styles/orderDetailStyles.scss"; // Importujemy styl SCSS
 
 const OrderDetail = () => {
   const context = useContext(myContext);
   const { getAllOrder } = context;
-  // console.log(getAllOrder)
+
   return (
-    <div>
-      <div>
-        <div className="py-5">
-          {/* text  */}
-          <h1 className=" text-xl font-bold">Wszystkie zamówienia</h1>
-        </div>
+    <div className="order-detail">
+      <div className="order-detail__header">
+        <h1 className="text-xl font-bold">Wszystkie zamówienia</h1>
+      </div>
 
-        {/* table  */}
-        <div className="w-full overflow-x-auto">
-          <table className="w-full text-left border border-collapse sm:border-separate border-gray-100 ">
-            <tbody>
-              <tr>
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100 font-bold fontPara"
-                >
-                  Nr.
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  ID zamówienia
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Zdjęcie
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Tytuł
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Kategoria
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Cena
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Ilość
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Suma
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Status
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Imię
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Adres
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Kod pocztowy
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Numer telefonu
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Email
-                </th>
-
-                <th
-                  scope="col"
-                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-100 text-slate-700 bg-slate-100"
-                >
-                  Data
-                </th>
-              </tr>
-              {getAllOrder.map((order) => {
-                console.log(order);
-                return (
-                  <>
-                    {order.cartItems.map((item, index) => {
-                      const {
-                        id,
-                        productImageurl,
-                        title,
-                        category,
-                        price,
-                        quantity,
-                      } = item;
-                      return (
-                        <tr key={index} className="text-gray-800">
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 ">
-                            {index + 1}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 ">
-                            {id}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            <img src={productImageurl} alt="img" />
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {title}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {category}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {price}zł
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {quantity}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {price * quantity}zł
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l text-green-600  first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.status}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.addressInfo.name}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.addressInfo.address}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.addressInfo.pincode}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.addressInfo.mobileNumber}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 ">
-                            {order.email}
-                          </td>
-
-                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            {order.date}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+      <div className="order-detail__table">
+        <table>
+          <thead>
+            <tr>
+              <th>Nr.</th>
+              <th>ID zamówienia</th>
+              <th>Zdjęcie</th>
+              <th>Tytuł</th>
+              <th>Kategoria</th>
+              <th>Cena</th>
+              <th>Ilość</th>
+              <th>Suma</th>
+              <th>Status</th>
+              <th>Imię</th>
+              <th>Adres</th>
+              <th>Kod pocztowy</th>
+              <th>Numer telefonu</th>
+              <th>Email</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getAllOrder.map((order, orderIndex) => {
+              return (
+                <>
+                  {order.cartItems.map((item, itemIndex) => {
+                    const { id, productImageurl, title, category, price, quantity } = item;
+                    const totalPrice = price * quantity;
+                    return (
+                      <tr key={itemIndex}>
+                        <td>{itemIndex + 1}</td>
+                        <td>{id}</td>
+                        <td>
+                          <img className="product-image" src={productImageurl} alt="Produkt" />
+                        </td>
+                        <td>{title}</td>
+                        <td>{category}</td>
+                        <td>{price} zł</td>
+                        <td>{quantity}</td>
+                        <td>{totalPrice} zł</td>
+                        <td className={`status-${order.status.toLowerCase()}`}>{order.status}</td>
+                        <td>{order.addressInfo.name}</td>
+                        <td>{order.addressInfo.address}</td>
+                        <td>{order.addressInfo.pincode}</td>
+                        <td>{order.addressInfo.mobileNumber}</td>
+                        <td>{order.email}</td>
+                        <td>{order.date}</td>
+                      </tr>
+                    );
+                  })}
+                </>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

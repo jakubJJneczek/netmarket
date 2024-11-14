@@ -1,0 +1,102 @@
+.product-detail {
+  &__header {
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__table {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+
+    table {
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+      font-family: "Roboto", sans-serif;
+
+      th,
+      td {
+        padding: 1rem;
+        border: 1px solid #1f2937;
+        text-align: center;
+      }
+
+      th {
+        background-color: #111827;
+        color: #e2e8f0;
+        font-weight: bold;
+        font-size: 1rem;
+        border-bottom: 2px solid #38bdf8; // Neonowy efekt pod nagłówkami
+      }
+
+      td {
+        background-color: #1f2937;
+        color: #f9fafb;
+      }
+
+      tr {
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #333f48; // Lekko jaśniejszy odcień przy najechaniu
+        }
+      }
+
+      .product-image {
+        width: 5rem;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+
+      .edit-btn,
+      .delete-btn {
+        font-weight: bold;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .edit-btn {
+        background-color: #38bdf8;
+        color: #1f2937;
+        box-shadow: 0 0 10px rgba(58, 199, 226, 0.6);
+
+        &:hover {
+          background-color: #30a0c9;
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(58, 199, 226, 0.8);
+        }
+      }
+
+      .delete-btn {
+        background-color: #ef4444;
+        color: #f9fafb;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+
+        &:hover {
+          background-color: #dc2626;
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+        }
+      }
+    }
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    background-color: #38bdf8;
+    color: #fff;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #30a0c9;
+    }
+  }
+}

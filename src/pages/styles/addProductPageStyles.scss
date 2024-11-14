@@ -1,0 +1,67 @@
+.add-product {
+  &__form-container {
+    background-color: #111827; // Ciemne tło
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__input,
+  &__textarea,
+  &__select,
+  &__button {
+    background-color: #1f2937; // Ciemniejsze tło dla pól
+    border: 1px solid #4b5563; // Granicza dla formularza
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    color: #e2e8f0; // Jasny kolor tekstu
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #cbd5e1; // Jaśniejsze kolory dla placeholderów
+    }
+
+    &:focus {
+      border-color: #38bdf8; // Neonowy kolor podczas focus
+      background-color: #2d3748; // Zmiana tła podczas focus
+    }
+  }
+
+  &__button {
+    background-color: #38bdf8; // Neonowy kolor przycisku
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: #30a0c9; // Jaśniejszy kolor przy hover
+      transform: scale(1.05);
+    }
+
+    &:active {
+      background-color: #2591b2;
+    }
+  }
+
+  &__select,
+  &__textarea {
+    height: auto;
+  }
+}

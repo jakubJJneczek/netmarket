@@ -1,0 +1,77 @@
+.admin-dashboard {
+  &__top {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  &__header {
+    background-color: #1f2937; // Przyciemnione tło
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    color: #e2e8f0; // Jasna czcionka
+  }
+
+  &__user-info {
+    background-color: #1f2937; // Przyciemnione tło
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    color: #e2e8f0; // Jasna czcionka
+    text-align: center;
+  }
+
+  &__tabs {
+    padding-top: 1.25rem;
+  }
+
+  &__tab-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  &__tab {
+    flex: 1 0 33%;
+    max-width: 33%;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+
+    .tab-card {
+      border: none; // Usuń standardową obramowanie
+      background-color: #111827; // Ciemne tło
+      color: #f9fafb; // Jasna czcionka
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      transition: box-shadow 0.3s ease-in-out, transform 0.2s;
+
+      // Neonowy efekt
+      box-shadow: 0 0 10px rgba(58, 199, 226, 0.6), 0 0 20px rgba(58, 199, 226, 0.4);
+
+      &:hover {
+        box-shadow: 0 0 15px rgba(58, 199, 226, 0.8), 0 0 25px rgba(58, 199, 226, 0.6), 0 0 35px rgba(58, 199, 226, 0.5);
+        transform: translateY(-5px);
+      }
+
+      .tab-icon {
+        margin-bottom: 0.75rem;
+
+        svg {
+          stroke: #38bdf8; // Kolor ikony
+        }
+      }
+
+      .tab-count {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .tab-label {
+        font-weight: bold;
+        color: #93c5fd; // Delikatny, jasny odcień dla etykiety
+      }
+    }
+  }
+}

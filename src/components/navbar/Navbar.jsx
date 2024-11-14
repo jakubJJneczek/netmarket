@@ -2,97 +2,93 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import { useSelector } from "react-redux";
 import Cart from "../cart/cart.jsx";
+import "../styles/searchBar.scss"; // Import pliku SCSS
 
 const Navbar = () => {
-  // get user from localStorage
+  // Pobieranie użytkownika z localStorage
   const user = JSON.parse(localStorage.getItem("users"));
 
-  // navigate
+  // Nawigacja
   const navigate = useNavigate();
 
-  // logout function
+  // Funkcja wylogowania
   const logout = () => {
-    localStorage.clear("users");
+    localStorage.removeItem("users"); // Poprawione: removeItem zamiast clear
     navigate("/login");
   };
+
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems);
-  // navList Data
+
+  // Dane nawigacyjne
   const navList = (
-    <ul className="flex space-x-3 text-white font-medium text-md px-5 items-center">
-      {/* Home */}
+    <ul className="nav-list flex space-x-4 items-center">
+      {/* Strona główna */}
       <li>
-        <Link to={"/"}>Strona główna</Link>
+        <Link to="/">Strona główna</Link>
       </li>
 
-      {/* All Product */}
+      {/* Produkty */}
       <li>
-        <Link to={"/allproduct"}>Produkty</Link>
+        <Link to="/allproduct">Produkty</Link>
       </li>
 
-      {/* Signup */}
-      {!user ? (
+      {/* Rejestracja */}
+      {!user && (
         <li>
-          <Link to={"/signup"}>Zarejestruj</Link>
+          <Link to="/signup">Zarejestruj</Link>
         </li>
-      ) : (
-        ""
       )}
 
-      {/* Signup */}
-      {!user ? (
+      {/* Logowanie */}
+      {!user && (
         <li>
-          <Link to={"/login"}>Zaloguj</Link>
+          <Link to="/login">Zaloguj</Link>
         </li>
-      ) : (
-        ""
       )}
 
-      {/* User */}
+      {/* Użytkownik */}
       {user?.role === "user" && (
         <li>
-          <Link to={"/user-dashboard"}>{user?.name}</Link>
+          <Link to="/user-dashboard">{user?.name}</Link>
         </li>
       )}
 
-      {/* Admin */}
+      {/* Administrator */}
       {user?.role === "admin" && (
         <li>
-          <Link to={"/admin-dashboard"}>Admin</Link>
+          <Link to="/admin-dashboard">Admin</Link>
         </li>
       )}
 
-      {/* logout */}
+      {/* Wylogowanie */}
       {user && (
-        <li className=" cursor-pointer" onClick={logout}>
+        <li className="logout cursor-pointer" onClick={logout}>
           Wyloguj
         </li>
       )}
 
-      {/* Cart */}
-      <li>
-        <Link to={"/cart"}>
+      {/* Koszyk */}
+      <li className="cart-icon">
+        <Link to="/cart">
           <Cart cartItems={cartItems.length} />
         </Link>
       </li>
     </ul>
   );
+
   return (
-    <nav className="bg-gray-600 sticky top-0">
-      {/* main  */}
-      <div className="lg:flex lg:justify-between items-center py-3 lg:px-3 ">
-        {/* left  */}
-        <div className="left py-3 lg:py-0">
-          <Link to={"/"}>
-            <h2 className=" font-bold text-white text-2xl text-center">
-              NetMarket
-            </h2>
+    <nav className="navbar bg-gray-600 sticky top-0">
+      {/* Główna zawartość */}
+      <div className="navbar-container flex justify-between items-center py-3 lg:px-6">
+        {/* Lewa strona */}
+        <div className="navbar-left">
+          <Link to="/">
+            <h2 className="navbar-logo font-bold text-white text-2xl text-center">NetMarket</h2>
           </Link>
         </div>
-        {/* Search Bar  */}
 
-        {/* right  */}
-        <div className="right flex justify-center mb-4 lg:mb-0 items-center">
+        {/* Prawa strona */}
+        <div className="navbar-right flex items-center">
           <SearchBar />
           {navList}
         </div>

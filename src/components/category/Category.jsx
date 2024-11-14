@@ -1,4 +1,6 @@
+import React from "react";
 import { useNavigate } from "react-router";
+import "../styles/styles.scss"; // Importuj arkusz styli
 
 const category = [
   {
@@ -9,7 +11,7 @@ const category = [
   {
     image:
       "https://a.allegroimg.com/original/11313e/dc5f9bf7493295d6bdb71ffcb435/Smartfon-Apple-iPhone-14-Pro-6-GB-128-GB-5G-Space-Black",
-    name: "Smatfony",
+    name: "Smartfony",
   },
   {
     image:
@@ -17,13 +19,11 @@ const category = [
     name: "TV",
   },
   {
-    image:
-      "https://mocnykomputer.pl/environment/cache/images/500_500_productGfx_410046/pc_gungnir_110r.png",
+    image: "https://www.art-comp24.pl/7285-large_default/komputer-gamer-8-rdzeni-gtx1650-32gb-1201tb-win10.jpg",
     name: "Gaming",
   },
   {
-    image:
-      "https://fotoforma.pl/environment/cache/images/500_500_productGfx_136720/aparat-canon-eos-r7-body_1.jpg",
+    image: "https://fotoforma.pl/environment/cache/images/500_500_productGfx_136720/aparat-canon-eos-r7-body_1.jpg",
     name: "Foto",
   },
   {
@@ -42,41 +42,14 @@ const Category = () => {
   const navigate = useNavigate();
   return (
     <>
-      <h1 className=" text-center mb-5 text-2xl font-semibold mt-5">
-        Kategorie
-      </h1>
-      <div>
-        <div className="flex flex-col mt-5">
-          <div className="flex overflow-x-scroll lg:justify-center  hide-scroll-bar">
-            <div className="flex ">
-              {category.map((item, index) => {
-                return (
-                  <div key={index} className="px-3 lg:px-10">
-                    <div
-                      onClick={() => navigate(`/category/${item.name}`)}
-                      className=" w-16 h-16 lg:w-24 lg:h-24 cursor-pointer mb-1 "
-                    >
-                      <div className="flex justify-center mb-12">
-                        <img src={item.image} alt="img" />
-                      </div>
-                    </div>
-                    <h1 className=" text-sm lg:text-lg text-center font-medium title-font ">
-                      {item.name}
-                    </h1>
-                  </div>
-                );
-              })}
-            </div>
+      <h1 className="text-center mb-5 text-2xl font-semibold mt-5">Kategorie</h1>
+      <div className="category-container hide-scrollbar">
+        {category.map((item, index) => (
+          <div key={index} className="category-item" onClick={() => navigate(`/category/${item.name}`)}>
+            <img src={item.image} alt={item.name} />
+            <h1>{item.name}</h1>
           </div>
-        </div>
-
-        {/* style  */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html:
-              ".hide-scroll-bar { -ms-overflow-style: none;  scrollbar-width: none; } .hide-scroll-bar::-webkit-scrollbar {  display: none; }",
-          }}
-        />
+        ))}
       </div>
     </>
   );
