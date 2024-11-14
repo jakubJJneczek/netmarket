@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+.user-dashboard {
+  font-family: "Montserrat", sans-serif;
+
+  color: #ffffff;
+
+  .user-info-panel {
+    background-color: #2b2d42;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .panel-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .user-details p {
+      font-size: 1rem;
+      margin: 0.25rem 0;
+      span {
+        font-weight: bold;
+        color: #8d99ae;
+      }
+    }
+  }
+
+  .user-stats {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    .stat-card {
+      background-color: #1a1c31;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      width: 200px;
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #00d1ff;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: #a0aec0;
+      }
+    }
+  }
+
+  .order-details {
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .order-table {
+      background-color: #2b2d42;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .order-card {
+      background-color: #1a1c31;
+      border: 1px solid #394867;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+
+      .order-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        background-color: #2d3142;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+
+        p {
+          margin: 0;
+          font-weight: bold;
+          color: #ffffff;
+        }
+
+        .order-status {
+          color: #00ff00;
+        }
+      }
+
+      .order-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background-color: #394867;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+
+        .order-item-image {
+          width: 80px;
+          height: 80px;
+          border-radius: 5px;
+          margin-right: 1rem;
+        }
+
+        .order-item-details {
+          flex: 1;
+
+          .order-item-title {
+            font-weight: bold;
+            color: #00d1ff;
+          }
+
+          .order-item-category,
+          .order-item-quantity,
+          .order-item-price {
+            color: #a0aec0;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

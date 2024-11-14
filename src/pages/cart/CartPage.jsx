@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/layout/Layout";
 import { Trash } from "lucide-react";
-import {
-  decrementQuantity,
-  deleteFromCart,
-  incrementQuantity,
-} from "../../redux/cartSlice";
+import { decrementQuantity, deleteFromCart, incrementQuantity } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 import { Navigate } from "react-router";
+import "../styles/cartPage.scss"; // Import stylu SCSS
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart);
@@ -29,8 +26,6 @@ const CartPage = () => {
   const handleDecrement = (id) => {
     dispatch(decrementQuantity(id));
   };
-
-  // const cartQuantity = cartItems.length;
 
   const cartItemTotal = cartItems
     .map((item) => item.quantity)
@@ -69,7 +64,6 @@ const CartPage = () => {
       return toast.error("Wypełnij wszystkie pola");
     }
 
-    // Order Info
     const orderInfo = {
       cartItems,
       addressInfo,
@@ -100,146 +94,57 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 max-w-7xl px-2 lg:px-0">
-        <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Twój Koszyk
-          </h1>
-          <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
-            <section
-              aria-labelledby="cart-heading"
-              className="rounded-lg bg-white lg:col-span-8"
-            >
-              <ul role="list" className="divide-y divide-gray-200">
-                {cartItems.length > 0 ? (
-                  <>
-                    {cartItems.map((item, index) => {
-                      const {
-                        id,
-                        title,
-                        price,
-                        productImageurl,
-                        quantity,
-                        category,
-                      } = item;
-                      return (
-                        <div key={index} className="">
-                          <li className="flex py-6 sm:py-6 ">
-                            <div className="flex-shrink-0">
-                              <img
-                                src={productImageurl}
-                                alt="img"
-                                className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
-                              />
-                            </div>
-
-                            <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                              <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                                <div>
-                                  <div className="flex justify-between">
-                                    <h3 className="text-sm">
-                                      <div className="font-semibold text-black">
-                                        {title}
-                                      </div>
-                                    </h3>
-                                  </div>
-                                  <div className="mt-1 flex text-sm">
-                                    <p className="text-sm text-gray-500">
-                                      {category}
-                                    </p>
-                                  </div>
-                                  <div className="mt-1 flex items-end">
-                                    <p className="text-sm font-medium text-gray-900">
-                                      {price} zł
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <div className="mb-2 flex">
-                            <div className="min-w-24 flex">
-                              <button
-                                onClick={() => handleDecrement(id)}
-                                type="button"
-                                className="h-7 w-7"
-                              >
-                                -
-                              </button>
-                              <input
-                                type="text"
-                                className="mx-1 h-7 w-9 rounded-md border text-center"
-                                value={quantity}
-                              />
-                              <button
-                                onClick={() => handleIncrement(id)}
-                                type="button"
-                                className="flex h-7 w-7 items-center justify-center"
-                              >
-                                +
-                              </button>
-                            </div>
-                            <div className="ml-6 flex text-sm">
-                              <button
-                                onClick={() => deleteCart(item)}
-                                type="button"
-                                className="flex items-center space-x-1 px-2 py-1 pl-0"
-                              >
-                                <Trash size={12} className="text-red-500" />
-                                <span className="text-xs font-medium text-red-500">
-                                  Usuń
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <h1>Brak produktów w Twoim koszyku</h1>
-                )}
-              </ul>
-            </section>
-            {/* Order summary */}
-            <section
-              aria-labelledby="summary-heading"
-              className="mt-16 rounded-md bg-white lg:col-span-4 lg:mt-0 lg:p-0"
-            >
-              <h2
-                id="summary-heading"
-                className=" border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
-              >
-                Do zapłaty
-              </h2>
-              <div>
-                <dl className=" space-y-1 px-2 py-4">
-                  <div className="flex items-center justify-between">
-                    <dt className="border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4">
-                      Cena ({cartItemTotal} szt.)
-                    </dt>
-                    <dd className="text-sm font-medium text-gray-900">
-                      {cartTotal} zł
-                    </dd>
-                  </div>
-                </dl>
-                <div className="px-2 pb-4 font-medium text-green-700">
-                  <div className="flex gap-4 mb-6">
-                    {user ? (
-                      <BuyNowModal
-                        addressInfo={addressInfo}
-                        setAddressInfo={setAddressInfo}
-                        buyNowFunction={buyNowFunction}
-                      />
-                    ) : (
-                      <Navigate to={"/login"} />
-                    )}
-                  </div>
-                </div>
+      <div className="cart-page container mx-auto px-4 max-w-7xl py-8">
+        <h1 className="page-title">Twój Koszyk</h1>
+        <form className="cart-form lg:grid lg:grid-cols-12 lg:gap-x-12">
+          <section className="cart-items lg:col-span-8">
+            <ul role="list">
+              {cartItems.length > 0 ? (
+                cartItems.map((item, index) => {
+                  const { id, title, price, productImageurl, quantity, category } = item;
+                  return (
+                    <li key={index} className="cart-item">
+                      <img src={productImageurl} alt="img" className="item-image" />
+                      <div className="item-details">
+                        <h3 className="item-title">{title}</h3>
+                        <p className="item-category">{category}</p>
+                        <p className="item-price">{price} zł</p>
+                      </div>
+                      <div className="item-actions">
+                        <button onClick={() => handleDecrement(id)}>-</button>
+                        <input type="text" value={quantity} readOnly className="quantity-input" />
+                        <button onClick={() => handleIncrement(id)}>+</button>
+                        <button onClick={() => deleteCart(item)} className="delete-button">
+                          <Trash size={16} /> Usuń
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })
+              ) : (
+                <h1 className="empty-cart-message">Brak produktów w Twoim koszyku</h1>
+              )}
+            </ul>
+          </section>
+          <section className="order-summary lg:col-span-4">
+            <h2 className="summary-title">Do zapłaty</h2>
+            <div className="summary-content">
+              <div className="summary-item">
+                <span className="summary-label">Cena ({cartItemTotal} szt.):</span>
+                <span className="summary-value">{cartTotal} zł</span>
               </div>
-            </section>
-          </form>
-        </div>
+              {user ? (
+                <BuyNowModal
+                  addressInfo={addressInfo}
+                  setAddressInfo={setAddressInfo}
+                  buyNowFunction={buyNowFunction}
+                />
+              ) : (
+                <Navigate to={"/login"} />
+              )}
+            </div>
+          </section>
+        </form>
       </div>
     </Layout>
   );

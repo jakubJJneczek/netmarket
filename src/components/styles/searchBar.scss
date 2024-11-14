@@ -1,165 +1,79 @@
-/* Navbar.scss */
-
-@import "../styles/variables.scss"; /* Import zmiennych kolorów */
-
-.navbar {
-  background-color: $black !important;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.navbar-container {
+.search-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-}
+  position: relative;
 
-.navbar-logo {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: $white;
-  cursor: pointer;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: $red;
+  .search-icon {
+    color: #fff;
+    margin-right: 0.5em;
   }
-}
 
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  margin-left: 1.5rem;
-
-  li {
-    margin-left: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: $white;
-    cursor: pointer;
+  &__input-container {
     position: relative;
-    transition: color 0.22s ease;
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.22s ease;
-    }
-
-    &:hover {
-      color: $red;
-
-      a {
-        color: inherit;
-      }
-    }
-
-    &.logout {
-      &:hover {
-        color: $neon-red;
-      }
-    }
-  }
-}
-.search-bar-container {
-  display: flex;
-  align-items: center;
-  background-color: $black;
-  padding: 0.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease;
-  margin-right: 1.5rem;
-
-  &:hover {
-    box-shadow: 0 6px 8px rgba(255, 7, 58, 0.5); /* Neonowy czerwony cień na hover */
   }
 
-  .search-input {
-    width: 200px;
-    padding: 0.5rem 1rem;
-    border: 2px solid $red;
-    background-color: $black;
-    color: $white;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
+  &__input {
+    background-color: #444;
+    color: white;
+    padding: 8px 12px;
+    width: 18rem;
     border-radius: 8px;
     outline: none;
-    transition: all 0.3s ease-in-out;
+    border: none;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    &:focus {
-      border-color: $neon-red;
-      box-shadow: 0 0 8px $neon-red;
-      background-color: darken($black, 5%);
+      color: #ddd;
     }
   }
 
-  .search-button {
-    margin-left: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: $neon-red;
-    color: $white;
-    border: none;
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f3f3f3;
     border-radius: 8px;
-    cursor: pointer;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 50;
+    transition: all 0.2s;
 
-    &:hover {
-      background-color: lighten($neon-red, 10%);
-      transform: translateY(-2px);
+    &-item {
+      padding: 8px 12px;
+      cursor: pointer;
+      &:hover {
+        background-color: #ddd;
+      }
     }
 
-    &:active {
-      transform: translateY(0);
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+    }
+
+    &-image {
+      width: 30px;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+
+  &__no-results {
+    text-align: center;
+    padding: 10px;
+
+    &-image {
+      width: 40px;
+      height: auto;
+      opacity: 0.6;
     }
   }
 }
-@media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    width: 100%;
-
-    li {
-      margin-left: 0;
-      margin-top: 0.5rem;
-    }
-  }
-
-  .search-bar-container {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.5rem;
-
-    .search-input {
-      width: 100%;
-    }
-
-    .search-button {
-      width: 100%;
-      margin-left: 0;
-      margin-top: 0.5rem;
-    }
-  }
+.search-bar__no-results-image {
+  width: 130px;
+  height: auto; // Zachowa proporcje obrazu
 }

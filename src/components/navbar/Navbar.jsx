@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import { useSelector } from "react-redux";
 import Cart from "../cart/cart.jsx";
-import "../styles/searchBar.scss"; // Import pliku SCSS
+import "../styles/navBar.scss"; // Import pliku SCSS
 
 const Navbar = () => {
   // Pobieranie użytkownika z localStorage

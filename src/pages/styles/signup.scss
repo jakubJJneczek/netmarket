@@ -1,0 +1,71 @@
+@import "../styles/variables.scss";
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #121212, darken($neon-red, 20%)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23ffffff22'/%3E%3C/svg%3E");
+
+  .signup-form {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .signup-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .signup-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+    border-radius: 0.25rem;
+    background-color: #2e2e2e;
+    color: #fff;
+    outline: none;
+
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &:focus {
+      border-color: #00b4d8; // Niebieski kolor przy focus
+    }
+  }
+
+  .signup-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #0094b8;
+    }
+  }
+
+  .login-link {
+    color: #00b4d8;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

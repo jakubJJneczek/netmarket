@@ -7,133 +7,74 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
+import "../styles/login.scss"; // Import stylów SCSS
 
 const Login = () => {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
-
-  // navigate
   const navigate = useNavigate();
 
-  // User Signup State
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
 
-  /**========================================================================
-   *                          User Login Function
-   *========================================================================**/
-
   const userLoginFunction = async () => {
-    // validation
     if (userLogin.email === "" || userLogin.password === "") {
       toast.error("Wypełnij wszystkie pola");
+      return;
     }
 
     setLoading(true);
     try {
-      const users = await signInWithEmailAndPassword(
-        auth,
-        userLogin.email,
-        userLogin.password
-      );
-      // console.log(users.user)
+      const users = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password);
 
-      try {
-        const q = query(
-          collection(fireDB, "user"),
-          where("uid", "==", users?.user?.uid)
-        );
-        const data = onSnapshot(q, (QuerySnapshot) => {
-          let user;
-          QuerySnapshot.forEach((doc) => (user = doc.data()));
-          localStorage.setItem("users", JSON.stringify(user));
-          setUserLogin({
-            email: "",
-            password: "",
-          });
-          toast.success("Zalogowano pomyślnie");
-          setLoading(false);
-          if (user.role === "user") {
-            navigate("/user-dashboard");
-          } else {
-            navigate("/admin-dashboard");
-          }
-        });
-        return () => data;
-      } catch (error) {
-        console.log(error);
+      const q = query(collection(fireDB, "user"), where("uid", "==", users?.user?.uid));
+      const data = onSnapshot(q, (QuerySnapshot) => {
+        let user;
+        QuerySnapshot.forEach((doc) => (user = doc.data()));
+        localStorage.setItem("users", JSON.stringify(user));
+        setUserLogin({ email: "", password: "" });
+        toast.success("Zalogowano pomyślnie");
         setLoading(false);
-      }
+        navigate(user.role === "user" ? "/user-dashboard" : "/admin-dashboard");
+      });
+      return () => data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setLoading(false);
       toast.error("Logowanie nie powiodło się");
     }
   };
+
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="login-container">
       {loading && <Loader />}
-      {/* Login Form  */}
-      <div className="login_Form bg-gray-50 px-8 py-6 border border-gray-100 rounded-xl shadow-md">
-        {/* Top Heading  */}
-        <div className="mb-5">
-          <h2 className="text-center text-2xl font-bold  ">Zaloguj się</h2>
-        </div>
-
-        {/* Input One  */}
-        <div className="mb-3">
-          <input
-            type="email"
-            name="email"
-            placeholder="Podaj adres email"
-            value={userLogin.email}
-            onChange={(e) => {
-              setUserLogin({
-                ...userLogin,
-                email: e.target.value,
-              });
-            }}
-            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
-          />
-        </div>
-
-        {/* Input Two  */}
-        <div className="mb-5">
-          <input
-            type="password"
-            placeholder="Podaj hasło"
-            value={userLogin.password}
-            onChange={(e) => {
-              setUserLogin({
-                ...userLogin,
-                password: e.target.value,
-              });
-            }}
-            className="bg-gray-50 border border-gray-200 px-2 py-2 w-96 rounded-md outline-none placeholder-gray-800"
-          />
-        </div>
-
-        {/* Signup Button  */}
-        <div className="mb-5">
-          <button
-            type="button"
-            onClick={userLoginFunction}
-            className="w-full px-4 py-3 text-center text-gray-100 bg-gray-500 border border-transparent dark:border-gray-700 hover:border-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl "
-          >
-            Zaloguj się
-          </button>
-        </div>
-
-        <div>
-          <h2 className="text-black">
-            Nie posiadasz konta?{" "}
-            <Link className="  font-bold" to={"/signup"}>
-              Zarejestruj się
-            </Link>
-          </h2>
-        </div>
+      <div className="login-form">
+        <h2 className="login-title">Zaloguj się</h2>
+        <input
+          type="email"
+          placeholder="Podaj adres email"
+          value={userLogin.email}
+          onChange={(e) => setUserLogin({ ...userLogin, email: e.target.value })}
+          className="login-input"
+        />
+        <input
+          type="password"
+          placeholder="Podaj hasło"
+          value={userLogin.password}
+          onChange={(e) => setUserLogin({ ...userLogin, password: e.target.value })}
+          className="login-input"
+        />
+        <button type="button" onClick={userLoginFunction} className="login-button">
+          Zaloguj się
+        </button>
+        <p>
+          Nie posiadasz konta?{" "}
+          <Link to="/signup" className="signup-link">
+            Zarejestruj się
+          </Link>
+        </p>
       </div>
     </div>
   );
